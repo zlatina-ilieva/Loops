@@ -1,0 +1,31 @@
+/*
+Write a program that, for a given two integer numbers N and X, calculates the sumS = 1 + 1!/X + 2!/X^2 + … + N!/X^N
+*/
+using System;
+
+class CalculatingSum
+{
+    static void Main()
+    {
+        Console.Write("N=");
+        double n = double.Parse(Console.ReadLine());
+        Console.Write("X=");
+        double x = double.Parse(Console.ReadLine());
+        double S = 1;
+        int f = 1;
+        if (n!=0 && x!=0)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                f = f * i;
+                S = S + (f / Math.Pow(x, i));
+            }
+            Console.WriteLine("Sumata S={0}", S);
+        }
+        else
+        {
+            Console.WriteLine(" X i N trqbva da ne sa nula !");
+            return;
+        }
+    }
+}
