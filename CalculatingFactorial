@@ -1,0 +1,41 @@
+/*
+Write a program that calculates N!*K! / (K-N)! for given N and K (1<N<K).
+*/
+using System;
+using System.Numerics;
+
+class CalculatingFactorial
+{
+    static void Main()
+    {
+        Console.Write("N=");
+        int n = int.Parse(Console.ReadLine());
+        Console.Write("K=");
+        int k = int.Parse(Console.ReadLine());
+        if (1 < n && n < k)
+        {
+            BigInteger factorialN = 1;
+            BigInteger factorialK = 1;
+            int factorialKN = k - n;
+            for (int i = k; i > n; i--)
+            {
+                for (int j = k + 1; j > k; j--)
+                {
+                    factorialN = factorialN * i;
+                    factorialK = factorialK * j;
+                }
+
+            }
+            for (int i = factorialKN; i > 1; i--)
+            {
+                    factorialKN = factorialKN * (i - 1);
+            }
+            Console.WriteLine("N!*K!/(K-N)!= {0}", (factorialN*factorialK)/factorialKN);
+        }
+        else
+        {
+            Console.WriteLine(" Ne e izpylneno uslovieto 1<N<K !");
+            return;
+        }
+    }
+}
