@@ -1,0 +1,43 @@
+/*
+In the combinatorial mathematics, the Catalan numbers are calculated by the following formula:
+C=(2n)!/(n+1)!*n! n>0 Write a program to calculate the Nth Catalan number by given N.
+*/
+using System;
+
+class Catalan
+{
+    static void Main()
+    {
+        Console.Write("N=");
+        int n = int.Parse(Console.ReadLine());
+        int factorialN = 1;
+        int factorialNPlusOne = 1;
+        int factorialTwoXN = 1;
+        int C = 0;
+        if (n >0)
+        {
+        for (int i = 1; i <= n; i++)
+        {
+            factorialN= factorialN* i;
+        }
+        for (int j = 1; j <=n+1 ; j++)
+        {
+            factorialNPlusOne=factorialNPlusOne* j;
+
+        }
+        for (int k = 1; k <= 2*n; k++)
+        {
+            factorialTwoXN = factorialTwoXN * k;
+
+        }
+        double result = factorialTwoXN / (factorialNPlusOne * factorialN);
+        Console.WriteLine("Sumata na Catalan e S={0}", result);
+
+        }
+        else
+        {
+            Console.WriteLine(" N>0");
+            return;
+        }
+    }
+}
